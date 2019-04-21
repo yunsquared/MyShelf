@@ -12,6 +12,7 @@
 		0B9B23C1226CFEE100983753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B23BF226CFEE100983753 /* Main.storyboard */; };
 		0B9B23C3226CFEE100983753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B23C2226CFEE100983753 /* Assets.xcassets */; };
 		0B9B23C6226CFEE100983753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B23C4226CFEE100983753 /* LaunchScreen.storyboard */; };
+		9966514A9FD162474028AAAF /* Pods_MyShelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DA9872DFE9555CC4C54623 /* Pods_MyShelf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0B9B23C2226CFEE100983753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B9B23C5226CFEE100983753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B9B23C7226CFEE100983753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55DA9872DFE9555CC4C54623 /* Pods_MyShelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57AA608586702294EC82817B /* Pods-MyShelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShelf.release.xcconfig"; path = "Target Support Files/Pods-MyShelf/Pods-MyShelf.release.xcconfig"; sourceTree = "<group>"; };
+		BACEC1B235CF01DF11F18EA1 /* Pods-MyShelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShelf.debug.xcconfig"; path = "Target Support Files/Pods-MyShelf/Pods-MyShelf.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9966514A9FD162474028AAAF /* Pods_MyShelf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0B9B23BA226CFEE100983753 /* MyShelf */,
 				0B9B23B9226CFEE100983753 /* Products */,
+				D91DB83D4425512FFB62D56A /* Pods */,
+				23A8147FAAFFB5A332F07949 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = MyShelf;
 			sourceTree = "<group>";
 		};
+		23A8147FAAFFB5A332F07949 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55DA9872DFE9555CC4C54623 /* Pods_MyShelf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D91DB83D4425512FFB62D56A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BACEC1B235CF01DF11F18EA1 /* Pods-MyShelf.debug.xcconfig */,
+				57AA608586702294EC82817B /* Pods-MyShelf.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B9B23CA226CFEE100983753 /* Build configuration list for PBXNativeTarget "MyShelf" */;
 			buildPhases = (
+				0CFC8F3F9475F117A8C79F9C /* [CP] Check Pods Manifest.lock */,
 				0B9B23B4226CFEE100983753 /* Sources */,
 				0B9B23B5226CFEE100983753 /* Frameworks */,
 				0B9B23B6226CFEE100983753 /* Resources */,
+				9ED9EBD2C448986B99D3264A /* [CP] Embed Pods Frameworks */,
+				AFDF5CC42E7029EFBBBDD64C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +157,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CFC8F3F9475F117A8C79F9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyShelf-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ED9EBD2C448986B99D3264A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyShelf/Pods-MyShelf-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyShelf/Pods-MyShelf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFDF5CC42E7029EFBBBDD64C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyShelf/Pods-MyShelf-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyShelf/Pods-MyShelf-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B9B23B4226CFEE100983753 /* Sources */ = {
@@ -280,6 +383,7 @@
 		};
 		0B9B23CB226CFEE100983753 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BACEC1B235CF01DF11F18EA1 /* Pods-MyShelf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +402,7 @@
 		};
 		0B9B23CC226CFEE100983753 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57AA608586702294EC82817B /* Pods-MyShelf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
