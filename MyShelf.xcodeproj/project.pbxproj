@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B22D03D227288010075F1E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B22D03C227288010075F1E8 /* GoogleService-Info.plist */; };
+		0B22D03F227289D00075F1E8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D03E227289D00075F1E8 /* HomeViewController.swift */; };
+		0B22D04222728A3D0075F1E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D04122728A3D0075F1E8 /* System.swift */; };
+		0B22D04422728C060075F1E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D04322728C060075F1E8 /* Constants.swift */; };
+		0B22D048227292040075F1E8 /* NoeDisplay-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B22D047227290EC0075F1E8 /* NoeDisplay-bold.ttf */; };
 		0B9B23BC226CFEE100983753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B23BB226CFEE100983753 /* AppDelegate.swift */; };
 		0B9B23BE226CFEE100983753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B23BD226CFEE100983753 /* ViewController.swift */; };
 		0B9B23C3226CFEE100983753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B23C2226CFEE100983753 /* Assets.xcassets */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B22D03C227288010075F1E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B22D03E227289D00075F1E8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0B22D04122728A3D0075F1E8 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		0B22D04322728C060075F1E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B22D047227290EC0075F1E8 /* NoeDisplay-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoeDisplay-bold.ttf"; sourceTree = "<group>"; };
 		0B9B23B8226CFEE100983753 /* MyShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9B23BB226CFEE100983753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B9B23BD226CFEE100983753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +48,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B22D039227286110075F1E8 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				0B9B23BD226CFEE100983753 /* ViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		0B22D040227289D60075F1E8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0B22D03E227289D00075F1E8 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0B22D046227290780075F1E8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B22D047227290EC0075F1E8 /* NoeDisplay-bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0B9B23AF226CFEE100983753 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +94,15 @@
 			isa = PBXGroup;
 			children = (
 				0B9B23BB226CFEE100983753 /* AppDelegate.swift */,
-				0B9B23BD226CFEE100983753 /* ViewController.swift */,
+				0B22D04122728A3D0075F1E8 /* System.swift */,
+				0B22D03C227288010075F1E8 /* GoogleService-Info.plist */,
+				0B22D040227289D60075F1E8 /* Home */,
+				0B22D039227286110075F1E8 /* SignIn */,
 				0B9B23C2226CFEE100983753 /* Assets.xcassets */,
 				0B9B23C4226CFEE100983753 /* LaunchScreen.storyboard */,
+				0B22D04322728C060075F1E8 /* Constants.swift */,
 				0B9B23C7226CFEE100983753 /* Info.plist */,
+				0B22D046227290780075F1E8 /* Fonts */,
 			);
 			path = MyShelf;
 			sourceTree = "<group>";
@@ -82,7 +121,6 @@
 				BACEC1B235CF01DF11F18EA1 /* Pods-MyShelf.debug.xcconfig */,
 				57AA608586702294EC82817B /* Pods-MyShelf.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,7 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B9B23C6226CFEE100983753 /* LaunchScreen.storyboard in Resources */,
+				0B22D048227292040075F1E8 /* NoeDisplay-bold.ttf in Resources */,
 				0B9B23C3226CFEE100983753 /* Assets.xcassets in Resources */,
+				0B22D03D227288010075F1E8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +229,10 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -198,7 +241,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -234,8 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B22D04422728C060075F1E8 /* Constants.swift in Sources */,
+				0B22D04222728A3D0075F1E8 /* System.swift in Sources */,
 				0B9B23BE226CFEE100983753 /* ViewController.swift in Sources */,
 				0B9B23BC226CFEE100983753 /* AppDelegate.swift in Sources */,
+				0B22D03F227289D00075F1E8 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

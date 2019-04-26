@@ -7,7 +7,10 @@ target 'MyShelf' do
 
   # Pods for MyShelf
   pod 'Alamofire'
-  pod 'SnapKit' 
+  pod 'SnapKit'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
   pod 'GoogleSignIn'
 
 end
