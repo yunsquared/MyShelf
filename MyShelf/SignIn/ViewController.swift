@@ -55,7 +55,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
         
         signInButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.centerY).offset(verticalSpace / 2)
+            make.top.equalTo(view.snp.centerY).offset((verticalSpace / 2) + 50)
             make.centerX.equalToSuperview()
         }
     }

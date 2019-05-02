@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B03797A2276C34A00C2A006 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0379792276C34A00C2A006 /* Network Manager.swift */; };
+		0B03797C2276C5AD00C2A006 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B03797B2276C5AD00C2A006 /* Listing.swift */; };
+		0B03797E2276C65B00C2A006 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B03797D2276C65B00C2A006 /* User.swift */; };
 		0B22D03D227288010075F1E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B22D03C227288010075F1E8 /* GoogleService-Info.plist */; };
 		0B22D03F227289D00075F1E8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D03E227289D00075F1E8 /* HomeViewController.swift */; };
 		0B22D04222728A3D0075F1E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D04122728A3D0075F1E8 /* System.swift */; };
 		0B22D04422728C060075F1E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B22D04322728C060075F1E8 /* Constants.swift */; };
 		0B22D048227292040075F1E8 /* NoeDisplay-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B22D047227290EC0075F1E8 /* NoeDisplay-bold.ttf */; };
+		0B689FB1227A74AE00776C61 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B689FB0227A74AE00776C61 /* Book.swift */; };
 		0B9B23BC226CFEE100983753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B23BB226CFEE100983753 /* AppDelegate.swift */; };
 		0B9B23BE226CFEE100983753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B23BD226CFEE100983753 /* ViewController.swift */; };
 		0B9B23C3226CFEE100983753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B23C2226CFEE100983753 /* Assets.xcassets */; };
@@ -20,11 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0379792276C34A00C2A006 /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
+		0B03797B2276C5AD00C2A006 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		0B03797D2276C65B00C2A006 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B22D03C227288010075F1E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B22D03E227289D00075F1E8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B22D04122728A3D0075F1E8 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		0B22D04322728C060075F1E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B22D047227290EC0075F1E8 /* NoeDisplay-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoeDisplay-bold.ttf"; sourceTree = "<group>"; };
+		0B689FB0227A74AE00776C61 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0B9B23B8226CFEE100983753 /* MyShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9B23BB226CFEE100983753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B9B23BD226CFEE100983753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,10 @@
 			children = (
 				0B9B23BB226CFEE100983753 /* AppDelegate.swift */,
 				0B22D04122728A3D0075F1E8 /* System.swift */,
+				0B0379792276C34A00C2A006 /* Network Manager.swift */,
+				0B03797B2276C5AD00C2A006 /* Listing.swift */,
+				0B689FB0227A74AE00776C61 /* Book.swift */,
+				0B03797D2276C65B00C2A006 /* User.swift */,
 				0B22D03C227288010075F1E8 /* GoogleService-Info.plist */,
 				0B22D040227289D60075F1E8 /* Home */,
 				0B22D039227286110075F1E8 /* SignIn */,
@@ -281,10 +293,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B22D04422728C060075F1E8 /* Constants.swift in Sources */,
+				0B03797C2276C5AD00C2A006 /* Listing.swift in Sources */,
 				0B22D04222728A3D0075F1E8 /* System.swift in Sources */,
 				0B9B23BE226CFEE100983753 /* ViewController.swift in Sources */,
+				0B03797E2276C65B00C2A006 /* User.swift in Sources */,
+				0B689FB1227A74AE00776C61 /* Book.swift in Sources */,
 				0B9B23BC226CFEE100983753 /* AppDelegate.swift in Sources */,
 				0B22D03F227289D00075F1E8 /* HomeViewController.swift in Sources */,
+				0B03797A2276C34A00C2A006 /* Network Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

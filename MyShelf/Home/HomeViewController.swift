@@ -8,10 +8,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
 
+class HomeViewController: UIViewController {
+    var books: [Book]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkManager.getAllBooks { (books) in
+            print(books)
+            self.books = books
+        }
+        
+        print("HIIIIIIII")
 
         // Do any additional setup after loading the view.
     }
