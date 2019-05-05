@@ -14,7 +14,7 @@ struct User: Codable {
     var name: String
     var netid: String
     var pfp: String
-    var listing: [Int]
+    var listings: [Int]
 }
 //
 //struct UserGetDataResponse: Codable {
@@ -33,4 +33,8 @@ struct UserGetResponse: Codable {
 struct UserPostResponse: Codable {
     var success: Bool
     var data: User
+}
+
+func getNetId() -> String {
+    return System.userName ?? "Nil"
 }

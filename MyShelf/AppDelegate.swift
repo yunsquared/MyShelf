@@ -12,10 +12,10 @@ import Firebase
 import SnapKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             DispatchQueue.main.async {
                 //              Calls did sign in for method
                 GIDSignIn.sharedInstance()?.signInSilently()
+//                self.window?.rootViewController = TabBarViewController()
             }
         } else {
             window?.rootViewController = ViewController()
@@ -42,18 +43,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     
+        func changeVC() {
+            window?.rootViewController = TabBarViewController()
+        }
+    
         func getUsername(email: String) -> String {
             let components = email.components(separatedBy: "@")
             return components[0]
         }
     
+        func getDomain(email: String) -> String {
+            let components = email.components(separatedBy: "@")
+            return components[1]
+        }
+    
         func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//            if getDomain(email: user.profile.email) != "cornell.edu" {
+//                window?.rootViewController = ViewController()
+//                return
+//            }
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
-            System.currentUser = getUsername(email: user.profile.email)
-            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+//            if GIDSignIn.sharedInstance().hasAuthInKeychain() & System.userName != nil {
+//                System.userName = getUsername(email: user.profile.email)
+//                window?.rootViewController = TabBarViewController()
+//            } else {
+            System.userName = getUsername(email: user.profile.email)
+//          WHY IS THIS NOT RUNNING AS EXPECTED
+            NetworkManager.getUserByNetId(netId: System.userName ?? "") { user in
+                DispatchQueue.main.async {
+                    System.user = user[0]
+                }
+            }
+            window?.rootViewController = TabBarViewController()
+            
+            
         }
     
         func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -61,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print(error.localizedDescription)
                 return
             }
-            System.currentUser = nil
+            System.userName = nil
 //            System.chats.removeAll()
         }
     

@@ -11,10 +11,16 @@ import Foundation
 class System {
     
 //    static var chats = [Chat]()
-    static var currentUser: String?
+    static var userName: String?
+    static var user: User!
+    static var users: [User]!
+    static var userBooks: [Book]!
+    static var userListings: [Listing]!
+    static var allBooks: [Book]!
+    static var bookNameListingDictionary: [String: [Listing]]!
     
     static func isNew(user: String) -> Bool {
-        if currentUser! == user { return false }
+        if userName! == user { return false }
 //        return !chats.contains { chat in chat.friend == user }
         return true
     }

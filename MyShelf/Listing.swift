@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias ListingPair = (Listing, User)
 
 struct Listing: Codable {
     var id: Int
