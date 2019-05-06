@@ -71,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //                window?.rootViewController = TabBarViewController()
 //            } else {
             System.userName = getUsername(email: user.profile.email)
-//          WHY IS THIS NOT RUNNING AS EXPECTED
             NetworkManager.getUserByNetId(netId: System.userName ?? "") { user in
                 DispatchQueue.main.async {
                     System.user = user[0]

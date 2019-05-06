@@ -38,57 +38,7 @@ class BookViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-//        bookName = "Gries's Book"
-        
-        //implementation for book name label
-        bookNameLabel = UILabel()
-        bookNameLabel.numberOfLines = 0
-        bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        bookNameLabel.text = bookName
-        bookNameLabel.textColor = .bigRed
-        bookNameLabel.textAlignment = .center
-        bookNameLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 42)
-        view.addSubview(bookNameLabel)
-        
-//        courseName = "Temp Class"
-        
-        classLabel = UILabel()
-        classLabel.translatesAutoresizingMaskIntoConstraints = false
-        classLabel.textColor = .black
-        classLabel.text = courseName
-        classLabel.textAlignment = .center
-        classLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        view.addSubview(classLabel)
-        
-        //implementation for button
-        sellButton = UIButton()
-        sellButton.translatesAutoresizingMaskIntoConstraints = false
-        sellButton.backgroundColor = .bigRed
-        sellButton.setTitle("Sell This Book", for: .normal)
-        sellButton.setTitleColor(.white, for: .normal)
-        sellButton.layer.cornerRadius = 20
-        sellButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        sellButton.addTarget(self, action: #selector(presentModalViewController), for: .touchUpInside)
-        view.addSubview(sellButton)
-        
-        //implementation for listings label
-        listingLabel = UILabel()
-        listingLabel.translatesAutoresizingMaskIntoConstraints = false
-        listingLabel.text = "Listings"
-        listingLabel.textColor = .black
-        listingLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 24)
-        view.addSubview(listingLabel)
-        
         let parsedBookName = Helpers.parseString(str: bookName)
-        print(parsedBookName)
-        
-        listingTableView = UITableView()
-        listingTableView.translatesAutoresizingMaskIntoConstraints = false
-        listingTableView.register(ListingTableViewCell.self, forCellReuseIdentifier: listingCellReuseIdentifier)
-        listingTableView.dataSource = self
-        listingTableView.delegate = self
-        listingTableView.showsVerticalScrollIndicator = false
-        view.addSubview(listingTableView)
         
         NetworkManager.getListingByBookName(bookName: parsedBookName) { (listings) in
             self.listings = listings
@@ -101,6 +51,48 @@ class BookViewController: UIViewController {
                 self.listingTableView.reloadData()
             }
         }
+
+        bookNameLabel = UILabel()
+        bookNameLabel.numberOfLines = 0
+        bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        bookNameLabel.text = bookName
+        bookNameLabel.textColor = .bigRed
+        bookNameLabel.textAlignment = .center
+        bookNameLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 42)
+        view.addSubview(bookNameLabel)
+        
+        classLabel = UILabel()
+        classLabel.translatesAutoresizingMaskIntoConstraints = false
+        classLabel.textColor = .black
+        classLabel.text = courseName
+        classLabel.textAlignment = .center
+        classLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        view.addSubview(classLabel)
+        
+        sellButton = UIButton()
+        sellButton.translatesAutoresizingMaskIntoConstraints = false
+        sellButton.backgroundColor = .bigRed
+        sellButton.setTitle("Sell This Book", for: .normal)
+        sellButton.setTitleColor(.white, for: .normal)
+        sellButton.layer.cornerRadius = 20
+        sellButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        sellButton.addTarget(self, action: #selector(presentModalViewController), for: .touchUpInside)
+        view.addSubview(sellButton)
+        
+        listingLabel = UILabel()
+        listingLabel.translatesAutoresizingMaskIntoConstraints = false
+        listingLabel.text = "Listings"
+        listingLabel.textColor = .black
+        listingLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 24)
+        view.addSubview(listingLabel)
+        
+        listingTableView = UITableView()
+        listingTableView.translatesAutoresizingMaskIntoConstraints = false
+        listingTableView.register(ListingTableViewCell.self, forCellReuseIdentifier: listingCellReuseIdentifier)
+        listingTableView.dataSource = self
+        listingTableView.delegate = self
+        listingTableView.showsVerticalScrollIndicator = false
+        view.addSubview(listingTableView)
         
         setupConstraints()
     }

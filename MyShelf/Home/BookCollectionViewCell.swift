@@ -19,18 +19,18 @@ class BookCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = UIColor.bigRed.withAlphaComponent(0.9)
+        contentView.backgroundColor = UIColor.bigRed.withAlphaComponent(0.7)
         bookNameLabel = UILabel()
         bookNameLabel.numberOfLines = 0
         bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
         bookNameLabel.textColor = .black
-        bookNameLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 20)
+        bookNameLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 22)
         contentView.addSubview(bookNameLabel)
         
         bookCourseLabel = UILabel()
         bookCourseLabel.translatesAutoresizingMaskIntoConstraints = false
         bookCourseLabel.textColor = .white
-        bookCourseLabel.font = UIFont.systemFont(ofSize: 12)
+        bookCourseLabel.font = UIFont.systemFont(ofSize: 16)
         contentView.addSubview(bookCourseLabel)
         
         setupConstraints()
@@ -40,14 +40,14 @@ class BookCollectionViewCell: UICollectionViewCell {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            bookCourseLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            bookCourseLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2 * padding),
             bookCourseLabel.bottomAnchor.constraint(equalTo: bookCourseLabel.topAnchor, constant: smallLabelHeight),
             bookCourseLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             bookCourseLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)
             ])
         
         NSLayoutConstraint.activate([
-            bookNameLabel.topAnchor.constraint(equalTo: bookCourseLabel.bottomAnchor, constant: padding),
+            bookNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 //            bookNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             bookNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             bookNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)

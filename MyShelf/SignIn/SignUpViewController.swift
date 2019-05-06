@@ -155,7 +155,7 @@ class SignUpViewController: UIViewController {
                 NetworkManager.getUserByNetId(netId: netIdText) { user in
                     System.user = user[0]
                 }
-                navigationController?.pushViewController(vc, animated: true)
+                present(vc, animated: true, completion: nil)
             }
         }
     }

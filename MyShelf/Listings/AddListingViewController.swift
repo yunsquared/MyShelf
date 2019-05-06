@@ -58,10 +58,10 @@ class AddListingViewController: UIViewController {
 
         priceTextField = UITextField()
         priceTextField.translatesAutoresizingMaskIntoConstraints = false
-        priceTextField.font = UIFont.systemFont(ofSize: 24)
+        priceTextField.font = UIFont.systemFont(ofSize: 22)
         priceTextField.backgroundColor = .none
         priceTextField.textColor = .gray
-        priceTextField.placeholder = "Ex: 24"
+        priceTextField.placeholder = "Ex: 20.99"
         view.addSubview(priceTextField)
         
         conditionLabel = UILabel()
@@ -72,7 +72,7 @@ class AddListingViewController: UIViewController {
         
         conditionTextField = UITextField()
         conditionTextField.translatesAutoresizingMaskIntoConstraints = false
-        conditionTextField.font = UIFont.systemFont(ofSize: 24)
+        conditionTextField.font = UIFont.systemFont(ofSize: 22)
         conditionTextField.textColor = .gray
         conditionTextField.backgroundColor = .none
         conditionTextField.placeholder = "Ex: Good"
@@ -121,7 +121,7 @@ class AddListingViewController: UIViewController {
             priceTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             priceTextField.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: 24),
             priceTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            priceTextField.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: -120)
+            priceTextField.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: -160)
             ])
         
         NSLayoutConstraint.activate([
@@ -142,7 +142,7 @@ class AddListingViewController: UIViewController {
             conditionTextField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 80),
             conditionTextField.bottomAnchor.constraint(equalTo: conditionLabel.topAnchor, constant: 24),
             conditionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            conditionTextField.leadingAnchor.constraint(equalTo: conditionTextField.trailingAnchor, constant: -120)
+            conditionTextField.leadingAnchor.constraint(equalTo: conditionTextField.trailingAnchor, constant: -160)
             ])
         
         NSLayoutConstraint.activate([

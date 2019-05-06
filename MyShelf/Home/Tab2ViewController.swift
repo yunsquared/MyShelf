@@ -44,7 +44,7 @@ class Tab2ViewController: UIViewController {
         listingTableView.showsVerticalScrollIndicator = false
         view.addSubview(listingTableView)
         
-        NetworkManager.getListingByUserNetId(netId: System.user.netid) { (listings) in
+        NetworkManager.getListingByUserNetId(netId: System.userName ?? "") { (listings) in
             self.listings = listings
             DispatchQueue.main.async {
                 self.listingTableView.reloadData()

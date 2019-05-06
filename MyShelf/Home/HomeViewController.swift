@@ -88,6 +88,7 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
         bookCollectionView.showsVerticalScrollIndicator = false
         bookCollectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: bookCellReuseIdentifier)
         view.addSubview(bookCollectionView)
+        
         setupConstraints()
     }
     
