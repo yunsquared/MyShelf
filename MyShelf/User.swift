@@ -36,5 +36,5 @@ struct UserPostResponse: Codable {
 }
 
 func getNetId() -> String {
-    return System.userName ?? "Nil"
+    return System.user.netid ?? "Nil"
 }

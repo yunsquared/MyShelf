@@ -152,9 +152,9 @@ class SignUpViewController: UIViewController {
         if let netIdText = netIdTextField.text, !netIdText.isEmpty {
             if let nameText = nameTextField.text, !nameText.isEmpty {
                 let vc = TabBarViewController()
-//                NetworkManager.getUserByNetId(netId: netIdText) { user in
-//                    System.user = user[0]
-//                }
+                NetworkManager.getUserByNetId(netId: netIdText) { user in
+                    System.user = user[0]
+                }
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

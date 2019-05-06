@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     System.user = user[0]
                 }
             }
-            window?.rootViewController = TabBarViewController()
+            window?.rootViewController = SignUpViewController()
             
             
         }

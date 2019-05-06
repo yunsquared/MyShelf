@@ -14,20 +14,19 @@ class AddListingViewController: UIViewController {
     var bookTitle: UILabel!
     var courseName: String = ""
     
-    var addPhotosLabel: UILabel!
     var priceLabel: UILabel!
     var dollarLabel: UILabel!
     var priceTextField: UITextField!
-    var conditionLabel: UILabel! //enum of conditions
+    var conditionLabel: UILabel!
     var conditionTextField: UITextField!
     var notesLabel: UILabel!
     var notesTextField: UITextField!
     var sellButton: UIButton!
-    var deleteButton: UIButton! //returns to BookViewController
+    var deleteButton: UIButton!
     weak var delegate: ReloadTableViewController?
     
     let padding: CGFloat = 20
-    let photosCollectionViewHeight: CGFloat = 300 //temp placeholder for photos height
+
     
     
     
@@ -180,27 +179,20 @@ class AddListingViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     @objc func createListingAndDismissViewController() {
         if let priceText = priceTextField.text, !priceText.isEmpty {
             if let conditionText = conditionTextField.text, !conditionText.isEmpty {
                 if let notesText = notesTextField.text, !notesText.isEmpty {
                     NetworkManager.createListing(title: bookName, netId: System.user.netid, course: courseName, price: priceText, condition: conditionText, notes: notesText, image: "") { (listing) in
                         print("created \(listing)")
+                        DispatchQueue.main.async {
+                            self.delegate?.reloadTableView()
+                        }
                     }
-                    delegate?.reloadTableView()
                     dismiss(animated: true, completion: nil)
-                        
                 }
             }
-            
         }
-
     }
-    
-    @objc func dismissVC() {
-        dismiss(animated: true, completion: nil)
-    }
-
     
 }

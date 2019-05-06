@@ -10,13 +10,18 @@ import Foundation
 import Alamofire
 import SnapKit
 
+protocol ReloadCollectionViewController: class {
+    func reloadCollectionView()
+    
+}
+
 class HomeViewController: UIViewController, UISearchResultsUpdating {
     
-    //var shelfResultsTableController: ShelfResultsTableController!
     let searchController = UISearchController(searchResultsController: nil) //nil to use same screen for display
     
     var filteredBooks = [Book]()
     var browseBooksLabel: UILabel!
+    var sellNewBookButton: UIButton!
     let padding: CGFloat = 20
     
     var books: [Book] = []
@@ -25,9 +30,7 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
         let titleLabel = UILabel()
         titleLabel.textAlignment = .center
         titleLabel.text = "My Shelf"
@@ -36,11 +39,6 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
         
         self.navigationItem.titleView = titleLabel
         view.backgroundColor = .white
-//
-//        let physics = Book(id: 1, title: "Physics 1", course: "Phys 1112", image: "", listings: [])
-//        let physics2 = Book(id: 2, title: "Physics 2", course: "Phys 2213", image: "", listings: [])
-//
-//        books = [physics, physics2]
         
         NetworkManager.getAllBooks { (books) in
             self.books = books
@@ -52,7 +50,17 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
         
         filteredBooks = books
         
-        //set up Search Controller
+        sellNewBookButton = UIButton()
+        sellNewBookButton = UIButton()
+        sellNewBookButton.translatesAutoresizingMaskIntoConstraints = false
+        sellNewBookButton.backgroundColor = .none
+        sellNewBookButton.setTitle("ADD NEW BOOK", for: .normal)
+        sellNewBookButton.setTitleColor(.blue, for: .normal)
+        sellNewBookButton.layer.cornerRadius = 20
+        sellNewBookButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        sellNewBookButton.addTarget(self, action: #selector(presentSellBookModalViewController), for: .touchUpInside)
+        view.addSubview(sellNewBookButton)
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search All Books"
@@ -64,8 +72,6 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
         browseBooksLabel.font = UIFont.init(name: "NoeDisplay-bold", size: 26)
         browseBooksLabel.textColor = .black
         view.addSubview(browseBooksLabel)
-        
-        //shelfResultsTableController = ShelfResultsTableController()
         
         let bookLayout = UICollectionViewFlowLayout()
         bookLayout.scrollDirection = .vertical
@@ -94,6 +100,13 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
             make.height.equalTo(40)
      
         }
+        
+        NSLayoutConstraint.activate([
+            sellNewBookButton.topAnchor.constraint(equalTo: browseBooksLabel.topAnchor),
+            sellNewBookButton.bottomAnchor.constraint(equalTo: browseBooksLabel.bottomAnchor),
+            sellNewBookButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            sellNewBookButton.leadingAnchor.constraint(equalTo: sellNewBookButton.trailingAnchor, constant: -140)
+            ])
         
         NSLayoutConstraint.activate([
             bookCollectionView.topAnchor.constraint(equalTo: browseBooksLabel.bottomAnchor, constant: 0.25 * padding),
@@ -131,39 +144,12 @@ class HomeViewController: UIViewController, UISearchResultsUpdating {
         return searchController.isActive && !searchBarIsEmpty()
     }
     
-    //method to check whether user is searching and using either filtered or original books as data source
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if isFiltering() {
-//            return filteredBooks.count
-//        }
-//
-//        return books.count
-//    }
-//
+    @objc func presentSellBookModalViewController() {
+        let vc = AddBookViewController()
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        let book: Book
-//        if isFiltering() {
-//            book = filteredBooks[indexPath.row]
-//        } else {
-//            book = books[indexPath.row]
-//        }
-//        cell.textLabel!.text = book.title
-//        cell.detailTextLabel!.text = book.course
-//        return cell
-//    }
-//
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //    if segue.identifier == "showDetail" {
-    //            if let indexPath = tableView.indexPathForSelectedRow {
-    //                let candy = candies[indexPath.row]
-    //                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-    //                controllerdetailCandy = candy
-    //                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-    //                controller.navigationItem.leftItemsSupplementBackButton = true
-    //            }
-    //
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -176,9 +162,6 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bookCellReuseIdentifier, for: indexPath) as! BookCollectionViewCell
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .lightGray
-        cell.selectedBackgroundView = backgroundView
         let book = filteredBooks[indexPath.item]
         cell.configure(for: book)
         cell.selectedBackgroundView = nil
@@ -191,7 +174,6 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        PRESENT BOOK VIEW CORRESPONDING TO BOOK AT ITEMAT
         let bookVC = BookViewController()
         let cell = filteredBooks[indexPath.item]
         bookVC.bookName = cell.title
@@ -210,5 +192,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let length = (bookCollectionView.frame.width - (padding)) / 2
         return CGSize(width: length, height: length)
+    }
+}
+
+extension HomeViewController: ReloadCollectionViewController {
+    
+    func reloadCollectionView() {
+        NetworkManager.getAllBooks { (books) in
+            self.books = books
+            self.filteredBooks = books
+            DispatchQueue.main.async {
+                self.bookCollectionView.reloadData()
+            }
+        }
     }
 }

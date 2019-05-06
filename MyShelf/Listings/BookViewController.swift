@@ -31,7 +31,7 @@ class BookViewController: UIViewController {
     var listingTableView: UITableView!
     let listingCellReuseIdentifier = "listingCellReuseIdentifier"
 //    var refreshControl: UIRefreshControl!
-    var listingSellerArray: [Listing:User] = []
+    var listingSellerArray: [(Listing, User)] = []
     var sellerArray: [Listing] = [] //call getBookByName
     
     override func viewDidLoad() {
@@ -93,8 +93,8 @@ class BookViewController: UIViewController {
         NetworkManager.getListingByBookName(bookName: parsedBookName) { (listings) in
             self.listings = listings
             for listing in listings {
-                NetworkManager.getUserByNetId(netId: listing.seller, completion: { (user) in
-                    self.
+                NetworkManager.getUserByNetId(netId: String(listing.seller), completion: { (user) in
+                    self.listingSellerArray.append((listing, user[0]))
                 })
             }
             DispatchQueue.main.async {
@@ -139,19 +139,6 @@ class BookViewController: UIViewController {
             ])
     }
     
-    
-//    IMPLEMENT
-    @objc func pushListingViewController() {
-        print("button pressed")
-        let vc = AddListingViewController()
-//        vc.delegate = self
-        
-        vc.bookName = bookName
-        vc.courseName = courseName
-        navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
     @objc func presentModalViewController() {
         let vc = AddListingViewController()
         vc.bookName = bookName
@@ -168,7 +155,9 @@ extension BookViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listingCellReuseIdentifier, for: indexPath) as! ListingTableViewCell
-        cell.sellerName = "Temp Name"
+        let listing = listings[indexPath.row]
+        let seller = Helpers.findTupleValueInList(tupleList: listingSellerArray, tupleValue: listing)
+        cell.sellerName = seller.name
         cell.configure(for: listings[indexPath.row])
         cell.selectionStyle = .none
         return cell
@@ -189,6 +178,11 @@ extension BookViewController: ReloadTableViewController {
         let parsedBookName = Helpers.parseString(str: bookName)
         NetworkManager.getListingByBookName(bookName: parsedBookName) { (listings) in
             self.listings = listings
+            for listing in listings {
+                NetworkManager.getUserByNetId(netId: String(listing.seller), completion: { (user) in
+                    self.listingSellerArray.append((listing, user[0]))
+                })
+            }
             DispatchQueue.main.async {
                 self.listingTableView.reloadData()
             }

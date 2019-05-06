@@ -31,4 +31,14 @@ class Helpers {
         }
         return result
     }
+    
+    static func findTupleValueInList(tupleList: [(Listing, User)], tupleValue: Listing) -> User {
+        for tuple in tupleList{
+            if tuple.0.id == tupleValue.id {
+                return tuple.1
+            }
+        }
+        print("Listing not found in tuple array")
+        return System.user
+    }
 }
