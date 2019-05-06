@@ -15,11 +15,11 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         let vc1 = HomeViewController()
-        vc1.tabBarItem.title = "Home"
+        vc1.tabBarItem.title = "Browse"
         vc1.tabBarItem.image = UIImage(named: "home")
         
         let vc2 = Tab2ViewController()
-        vc2.tabBarItem.title = "Classes"
+        vc2.tabBarItem.title = "My Listings"
         vc2.tabBarItem.image = UIImage(named: "classes")
         
         viewControllers = [UINavigationController(rootViewController: vc1), UINavigationController(rootViewController: vc2)]
