@@ -1,6 +1,12 @@
 # MyShelf
 Hack challenge project
 
+Contributors: 
+- Steven Jiang (iOS and Backend) 
+- Yunyun Wang (iOS and UI/UX)
+- Hartek Sabharwal (Backend) 
+
+
 **App Name**: MyShelf
 
 **Tagline**: Platform for a community of Cornell students to buy and sell their used textbooks and course materials in an efficient manner through price comparisons. 
